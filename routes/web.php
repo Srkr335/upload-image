@@ -4,7 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Models\Category;
-use App\Http\Controllers\ProductImageController;  
+use App\Http\Controllers\ProductImageController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -43,7 +43,8 @@ Route::get('/categories/{id}/edit',[CategoryController::class, 'edit'])->name('e
 Route::PUT('/categories/{id}/edit',[CategoryController::class, 'update'])->name('update');
 Route::get('/categories/{id}/delete',[CategoryController::class, 'delete'])->name('delete');
 
-Route::get('/categories/{productid}/upload',[ProductImageController::class, 'index'])->name('index.upload');
-
+Route::get('/categories/{productId}/upload', [ProductImageController::class, 'index'])->name('index');
+Route::post('/categories/{productId}/upload', [ProductImageController::class, 'store'])->name('store');
+Route::get('product-image/{productImageId}/delete',[ProductImageController::class, 'delete'])->name('delete');
 
 require __DIR__.'/auth.php';

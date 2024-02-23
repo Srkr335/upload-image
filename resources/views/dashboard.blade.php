@@ -1,3 +1,4 @@
+
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -34,6 +35,7 @@
                                 <th>Description</th>
                                 <th>Image</th>
                                 <th>Is_Active</th>
+                                <th>files</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -45,6 +47,7 @@
                                 <td>{{ $item->description }}</td>
 
                                 <td>
+
                                     <img src="{{ asset($item->image) }}" style="width:70px; height:70px;"  alt="image">
                                 </td>
                                 @if ($item->is_active)
@@ -52,7 +55,7 @@
                             @else
                                 <td  class="btn btn-warning">InActive</td>
                             @endif
-                                <td></td>
+
                                 <td>
                                     <a href="{{ url('categories/'. $item->id.'/upload') }}" class="btn btn-info">Add / View Images</a>
                                 </td>
@@ -77,3 +80,4 @@
                 </div>
                 </div>
 </x-app-layout>
+

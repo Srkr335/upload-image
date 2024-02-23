@@ -8,12 +8,7 @@ use Illuminate\Support\Facades\File;
 
 class CategoryController extends Controller
 {
-    // public function index(){
-
-    //    return 'hii sreejith ';
-
-    // }
-
+    
     public function create(){
 
         return view('category.create');
@@ -32,16 +27,6 @@ $request->validate([
     'is_active'=>'sometimes'
 
 ]);
-
-if ($request->has('image')) {
-
-    $file = $request->file('image');
-    $extension = $file->getClientOriginalExtension();
-    $filename = time() . '.' . $extension;
-    $path = 'uploads/category/';
-    $file->move($path, $filename);
-
-}
 
 Category::create([
     'name' => $request->name,
@@ -74,7 +59,6 @@ return view('category.edit',compact('category'));
 
             'name'=>'required|max:225|string',
             'description'=>'required|max:225|string',
-            'image'=>'nullable|mimes:png,jpg,jpeg,webp',
             'is_active'=>'sometimes'
 
         ]);
